@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Validation\Rules\Password;
-use App\Models\tbwarga;
-use Illuminate\Validation\ValidationExceptio;
+use App\Models\Warga;
+
 
 class RegisterController extends Controller
 {
@@ -21,19 +20,31 @@ class RegisterController extends Controller
     }
     public function store(Request $request)
     {
-        // $validate = $request->validate([
-        //     'nama' => 'required|uppercase',
-        //     'email' => 'required',
-        //     'username' => 'required|unique:post',
-        //     'password' => Password::min(5)
-        //         ->letters()
-        //         ->numbers(),
-        //     'tempat_lahir' => 'required',
-        //     'tgl_lahir' => 'required',
-        //     'rt' => 'required',
-        //     'rw' => 'required'
-        // ]);
-        tbwarga::create([
+        // validation input
+        // $validate = $request->validate(
+        //     [
+        //         'nama' => ['required'],
+        //         'email' => ['required'],
+        //         'username' => ['required'],
+        //         'password' => ['required|min:4'],
+        //         'tempat_lahir' => ['required'],
+        //         'tgl_lahir' => ['required'],
+        //         'rt' => ['required'],
+        //         'rw' => ['required'],
+        //         'foto' => ['nullable|image|mimes:jpg,png,jpeg|max:2048'],
+        //     ],
+        // );
+
+        // file foto
+        if (!empty($request->foto)) {
+            $fileName = 'foto-' . uniqid() . ',' . $request->foto->extension();
+            $request->foto->move(public_path('image'), $fileName);
+        } else {
+            $fileName = 'nophoto.jpg';
+        }
+
+        Warga::create([
+            'nik' => $request->nik,
             'nama' => $request->nama,
             'email' => $request->email,
             'username' => $request->username,
@@ -42,6 +53,8 @@ class RegisterController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'rt' => $request->rt,
             'rw' => $request->rw,
+            'foto' => $fileName
+
         ]);
         Alert::success('Congrats', 'You\'ve Successfully Registered');
         return redirect()->route('login');

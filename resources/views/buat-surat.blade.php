@@ -12,7 +12,7 @@
     </section>
     <form class="container mx-auto my-24">
         <h4 class="text-2xl font-bold text-center">BUAT SURAT</h4>
-        <button class="p-3 bg-primary rounded-lg mb-8 text-white"><a href="/rt-warga">Kembali</a></button>
+        <button class="p-3 bg-primary rounded-lg mb-8 text-white"><a href="/dashboard">Kembali</a></button>
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 ">Nama</label>

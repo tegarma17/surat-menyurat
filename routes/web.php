@@ -34,6 +34,8 @@ Route::get('/buat-surat', function () {
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/login', [RegisterController::class, 'login'])->name('login');
 Route::post('/register/store', [RegisterController::class, 'store'])->name('register.store');
+
+
 route::get('/data-warga/50', [data_warga::class, 'rt50']);
 route::get('/data-warga/51', [data_warga::class, 'rt51']);
 route::get('/data-warga/52', [data_warga::class, 'rt52']);

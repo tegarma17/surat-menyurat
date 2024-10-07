@@ -73,7 +73,7 @@
 
 
             <a href="/dashboard">
-                <div class="p-4 bg-logout shadow-lg text-white">
+                <div class="p-6 rounded-md bg-logout shadow-lg text-white">
                     <div class="py-3 px-5">
                         <i class="fa-solid fa-arrow-right-from-bracket fa-4x"></i>
                         <h4 class="text-center font-bold mt-3">Kembali </h4>

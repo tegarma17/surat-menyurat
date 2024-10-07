@@ -74,7 +74,7 @@
                                     {{ $Warga->nama }}</th>
                                 <th
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                                    {{ $Warga->nama }}</th>
+                                    <i class="p-4 rounded-md bg-yellow-400 fa-solid fa-pen-to-square fa-lg"></i>
                             </tr>
                         @endforeach
                     </tbody>

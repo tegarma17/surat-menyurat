@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbwargas', function (Blueprint $table) {
+        Schema::create('wargas', function (Blueprint $table) {
             $table->id();
+            $table->integer('nik');
             $table->string('nama');
             $table->string('email');
             $table->string('username');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->enum('rt', ['50', '51', '52', '53', '54', '55', '56']);
             $table->enum('rw', ['08']);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbwargas');
+        Schema::dropIfExists('wargas');
     }
 };

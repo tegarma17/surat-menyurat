@@ -10,6 +10,14 @@
         @csrf
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2" for="name" name="nama" value="{{ old('nama') }}">
+                NIK
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="nik" type="number" placeholder="NIK">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="name" name="nama" value="{{ old('nama') }}">
                 Nama
             </label>
             <input
@@ -38,8 +46,7 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email" type="password" name="password"
-                placeholder="Contoh Password : Huruf a - z dan angka 1 -9">
+                id="email" type="password" name="password">
         </div>
 
         <div class="mb-4">
@@ -56,7 +63,7 @@
             </label>
             <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="tgl_lahir" type="date" placeholder="Select a date">
+                id="tgl_lahir" name="tgl_lahir" type="date" placeholder="Select a date">
         </div>
         <div class="mb-4">
             <label class="block text-gray-700 font-bold mb-2">
@@ -85,6 +92,24 @@
                 <option value="55">55</option>
                 <option value="56">56</option>
             </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="date">
+                Foto
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                name="foto" type="file" placeholder="Max Foto 2 MB">
+            {{-- @if (!empty($id->foto))
+                        <img src="{{url('image')}}/{{$id->foto}}" alt=""class="rounded" style="width: 100%; max-width: 100px; height: auto;">
+                        @endif --}}
+            @if (isset($id->foto) && !empty($id->foto))
+                <img src="{{ url('image/' . $id->foto) }}" alt="Foto Produk" class="rounded"
+                    style="width: 100%; max-width: 100px; height: auto;">
+            @else
+                <img src="{{ url('img/nophoto.jpg') }}" alt="No Foto" class="rounded"
+                    style="width: 100%; max-width: 100px; height: auto;">
+            @endif
         </div>
         <div class="flex items-center justify-center mb-4">
             <button
